@@ -1,0 +1,35 @@
+<template>
+  <div>
+    <q-list>
+      <q-item-label header>
+        {{ $t("side_menu.title") }}
+      </q-item-label>
+      <SideMenuLink v-for="tile in menuTiles" :key="tile.title" v-bind="tile" />
+    </q-list>
+  </div>
+</template>
+
+<script>
+import { ref, reactive, computed } from "vue";
+import SideMenuLink from "components/SideMenuLink.vue";
+
+export default {
+  name: "SideMenu",
+  components: { SideMenuLink },
+  setup(props) {
+    const state = reactive({
+      text: "napis",
+    });
+
+    const menuTiles = computed(() => [
+      {
+        title: "side_menu.settings",
+        icon: "settings",
+        link: "/settings",
+      },
+    ]);
+
+    return { state, menuTiles };
+  },
+};
+</script>

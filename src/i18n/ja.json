@@ -1,0 +1,10 @@
+{
+  "hello": "私のアプリケーションへようこそ",
+  "side_menu": {
+    "title": "メニュー",
+    "settings": "設定"
+  },
+  "settings": {
+    "language": "言語"
+  }
+}

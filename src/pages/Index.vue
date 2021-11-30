@@ -1,5 +1,6 @@
 <template>
-  <q-page class="flex flex-center">
+  <q-page class="flex flex-center column">
+    <h6>{{$t("hello")}}</h6>
     <img
       alt="Quasar logo"
       src="~assets/quasar-logo-vertical.svg"

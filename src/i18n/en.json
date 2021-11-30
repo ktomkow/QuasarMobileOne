@@ -1,0 +1,10 @@
+{
+  "hello": "Welcome to my app",
+  "side_menu": {
+    "title": "Menu",
+    "settings": "Settings"
+  },
+  "settings": {
+    "language": "Language"
+  }
+}
