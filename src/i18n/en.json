@@ -4,7 +4,8 @@
     "title": "Menu",
     "home" :"Home",
     "settings": "Settings",
-    "info": "Info"
+    "info": "Info",
+    "404": "404"
   },
   "settings": {
     "language": "Language"

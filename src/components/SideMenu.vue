@@ -37,6 +37,11 @@ export default {
         icon: "info",
         link: "/info",
       },
+      {
+        title: "side_menu.404",
+        icon: "dangerous",
+        link: "/404",
+      },
     ]);
 
     return { state, menuTiles };
