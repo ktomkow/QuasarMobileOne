@@ -2,7 +2,9 @@
   "hello": "Welcome to my app",
   "side_menu": {
     "title": "Menu",
-    "settings": "Settings"
+    "home" :"Home",
+    "settings": "Settings",
+    "info": "Info"
   },
   "settings": {
     "language": "Language"

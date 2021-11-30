@@ -23,9 +23,19 @@ export default {
 
     const menuTiles = computed(() => [
       {
+        title: "side_menu.home",
+        icon: "home",
+        link: "/",
+      },
+      {
         title: "side_menu.settings",
         icon: "settings",
         link: "/settings",
+      },
+      {
+        title: "side_menu.info",
+        icon: "info",
+        link: "/info",
       },
     ]);
 

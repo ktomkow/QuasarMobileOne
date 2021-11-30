@@ -1,19 +1,24 @@
+import MainLayout from "layouts/MainLayout";
+import Index from "pages/Index";
+import Error404 from "pages/Error404";
+import Settings from "pages/Settings";
 
 const routes = [
   {
-    path: '/',
-    component: () => import('layouts/MainLayout.vue'),
+    path: "/",
+    component: MainLayout,
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
-    ]
+      { path: "", component: Index },
+      { path: "settings", component: Settings },
+    ],
   },
-
+  ,
   // Always leave this as last one,
   // but you can also remove it
   {
-    path: '/:catchAll(.*)*',
-    component: () => import('pages/Error404.vue')
-  }
-]
+    path: "/:catchAll(.*)*",
+    component: Error404,
+  },
+];
 
-export default routes
+export default routes;

@@ -1,13 +1,6 @@
 <template>
-  <q-item
-    clickable
-    tag="a"
-    :href="link"
-  >
-    <q-item-section
-      v-if="icon"
-      avatar
-    >
+  <q-item clickable exact :to="link">
+    <q-item-section v-if="icon" avatar>
       <q-icon :name="icon" />
     </q-item-section>
 
@@ -18,25 +11,25 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: 'SideMenuLink',
+  name: "SideMenuLink",
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
 
     link: {
       type: String,
-      default: '#'
+      default: "#",
     },
 
     icon: {
       type: String,
-      default: ''
-    }
-  }
-})
+      default: "",
+    },
+  },
+});
 </script>
