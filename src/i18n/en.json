@@ -2,7 +2,8 @@
   "hello": "Welcome to my app",
   "side_menu": {
     "title": "Menu",
-    "home" :"Home",
+    "home": "Home",
+    "stepper_demo": "Stepper demo",
     "settings": "Settings",
     "info": "Info",
     "404": "404"

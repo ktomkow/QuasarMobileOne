@@ -28,6 +28,11 @@ export default {
         link: "/",
       },
       {
+        title: "side_menu.stepper_demo",
+        icon: "directions_walk",
+        link: "/stepper_demo",
+      },
+      {
         title: "side_menu.settings",
         icon: "settings",
         link: "/settings",

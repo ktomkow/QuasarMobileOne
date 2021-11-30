@@ -3,6 +3,7 @@ import Index from "pages/Index";
 import Error404 from "pages/Error404";
 import Settings from "pages/Settings";
 import Info from "pages/Info";
+import StepperDemo from "pages/StepperDemo";
 
 const routes = [
   {
@@ -10,6 +11,7 @@ const routes = [
     component: MainLayout,
     children: [
       { path: "", component: Index },
+      { path: "stepper_demo", component: StepperDemo },
       { path: "settings", component: Settings },
       { path: "info", component: Info },
     ],
