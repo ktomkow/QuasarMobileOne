@@ -1,5 +1,6 @@
-import { Store } from 'vuex';
-
-export function set(context, item) {
-  context.commit('set', item);
+export function set(context, languageCode) {
+  const allLanguages = context.state.languages;
+  if (allLanguages && allLanguages.some((x) => x.code === languageCode)) {
+    context.commit("mark", languageCode);
+  }
 }

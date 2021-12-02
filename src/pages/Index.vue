@@ -4,6 +4,7 @@
     <q-btn color="primary" label="Show short toast" @click="showShortToast" />
     <q-btn color="primary" label="Show long toast" @click="showLongToast" />
     <q-btn color="primary" label="Show alert" @click="showAlert" />
+    <q-btn color="positive" label="vuex" @click="callVuex" />
     <img
       alt="Quasar logo"
       src="~assets/quasar-logo-vertical.svg"
@@ -14,10 +15,12 @@
 
 <script>
 import { defineComponent } from "vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "PageIndex",
   setup() {
+    const store = useStore();
     const showToast = (duration) => {
       window.plugins.toast.showWithOptions(
         {
@@ -42,7 +45,14 @@ export default defineComponent({
     const showAlert = () => {
       alert("Hi, I am alert");
     };
-    return { showShortToast, showLongToast, showAlert };
+
+    const callVuex = () => {
+      console.log(store.state.language.languages[0]);
+      store.dispatch('language/set', 'pl');
+      console.log('active: ', store.getters['language/getActiveCode']);
+    };
+
+    return { showShortToast, showLongToast, showAlert, callVuex };
   },
 });
 </script>
