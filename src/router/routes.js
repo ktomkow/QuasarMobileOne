@@ -4,6 +4,7 @@ import Error404 from "pages/Error404";
 import Settings from "pages/Settings";
 import Info from "pages/Info";
 import StepperDemo from "pages/StepperDemo";
+import Activities from "pages/Activities";
 
 const routes = [
   {
@@ -14,6 +15,7 @@ const routes = [
       { path: "stepper_demo", component: StepperDemo },
       { path: "settings", component: Settings },
       { path: "info", component: Info },
+      { path: "activities", component: Activities },
     ],
   },
   ,

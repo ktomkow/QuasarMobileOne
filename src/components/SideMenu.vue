@@ -33,15 +33,22 @@ export default {
         link: "/stepper_demo",
       },
       {
+        title: "side_menu.activities",
+        icon: "surfing",
+        link: "/activities",
+      },
+      {
         title: "side_menu.settings",
         icon: "settings",
         link: "/settings",
       },
+
       {
         title: "side_menu.info",
         icon: "info",
         link: "/info",
       },
+
       {
         title: "side_menu.404",
         icon: "dangerous",
