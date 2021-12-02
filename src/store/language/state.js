@@ -1,5 +1,8 @@
+import { i18n } from "boot/i18n";
+
 export default function () {
   return {
+    i18n: i18n.global,
     languages: [
       {
         name: "English",

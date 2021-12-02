@@ -32,7 +32,6 @@ export default {
 
     const pickLanguage = (item) => {
       store.dispatch("language/set", item.code);
-      locale.value = item.code;
     };
 
     onMounted(() => {
