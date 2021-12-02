@@ -1,6 +1,7 @@
-import { store } from 'quasar/wrappers'
-import { createStore } from 'vuex'
-import language from "./language"
+import { store } from "quasar/wrappers";
+import { createStore } from "vuex";
+import language from "./language";
+import activites from "./activites";
 
 // import example from './module-example'
 
@@ -16,13 +17,14 @@ import language from "./language"
 export default store(function (/* { ssrContext } */) {
   const Store = createStore({
     modules: {
-      language
+      language,
+      activites,
     },
 
     // enable strict mode (adds overhead!)
     // for dev mode and --debug builds only
-    strict: process.env.DEBUGGING
-  })
+    strict: process.env.DEBUGGING,
+  });
 
-  return Store
-})
+  return Store;
+});
