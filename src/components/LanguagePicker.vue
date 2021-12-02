@@ -3,10 +3,10 @@
     <q-btn
       round
       size="md"
-      v-for="language in state.languages"
+      v-for="language in languages"
       :color="language.active ? 'green' : ''"
       :key="language.code"
-      @click="languageChosen(language)"
+      @click="pickLanguage(language)"
     >
       <q-avatar size="md">
         <img :src="language.icon" />
@@ -16,66 +16,32 @@
 </template>
 
 <script>
-import { reactive, onMounted } from "vue";
+import { onMounted, computed } from "vue";
 import { useI18n } from "vue-i18n";
+import { useStore } from "vuex";
 
 export default {
   name: "LanguagePicker",
   setup(props) {
     const { locale } = useI18n({ useScope: "global" });
-    const state = reactive({
-      languages: [
-        {
-          name: "English",
-          icon: "balls/united-kingdom.png",
-          code: "en",
-          active: false,
-        },
-        {
-          name: "Polish",
-          icon: "balls/poland.png",
-          code: "pl",
-          active: false,
-        },
-        {
-          name: "Russian",
-          icon: "balls/russia.png",
-          code: "ru",
-          active: false,
-        },
-        {
-          name: "Japaneese",
-          icon: "balls/japan.png",
-          code: "ja",
-          active: false,
-        },
-      ],
+    const store = useStore();
+
+    const languages = computed(() => {
+      return store.state.language.languages;
     });
 
-    const languageChosen = (item) => {
-      const current = state.languages.find((x) => x.active);
-      if (current) {
-        current.active = false;
-      }
-      item.active = true;
+    const pickLanguage = (item) => {
+      store.dispatch("language/set", item.code);
       locale.value = item.code;
     };
 
-    const clear = () => {
-      state.languages.forEach((x) => (x.active = false));
-    };
-
-    const markCurrentLanguage = () => {
-      state.languages.forEach((x) => x.active = locale.value === x.code);
-    };
-
     onMounted(() => {
-      if(locale && locale.value) {
-        markCurrentLanguage();
+      if (locale && locale.value) {
+        store.dispatch("language/set", locale.value);
       }
     });
 
-    return { state, languageChosen  };
+    return { languages, pickLanguage };
   },
 };
 </script>
