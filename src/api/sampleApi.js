@@ -1,0 +1,1 @@
+import {axios} from "boot/axios";
