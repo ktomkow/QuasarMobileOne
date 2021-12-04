@@ -11,5 +11,24 @@
   },
   "settings": {
     "language": "Language"
+  },
+  "activities": {
+    "types": {
+      "walk": "Walking",
+      "run": "Running",
+      "bicycle": "Bicycling",
+      "cardio": "Cardio",
+      "basketball": "Basketball",
+      "volleyball": "Volleybal",
+      "football": "Footbal",
+      "gymnastics": "Gymnastics",
+      "gym": "Gym",
+      "other": "Other"
+    },
+    "metrics": {
+      "repeats": "Repeats",
+      "distance": "Distance",
+      "time": "Time"
+    }
   }
 }
