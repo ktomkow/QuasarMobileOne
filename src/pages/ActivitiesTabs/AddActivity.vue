@@ -52,7 +52,8 @@ import { extend } from "quasar";
 
 export default {
   name: "AddActivity",
-  setup(props) {
+  emits: ["added"],
+  setup(props, context) {
     const state = reactive({
       date: null,
       activity: { label: "" },
@@ -70,9 +71,15 @@ export default {
 
     const onSubmit = () => {
       console.log(state);
+      context.emit("added");
+      onReset();
     };
 
-    const onReset = () => {};
+    const onReset = () => {
+      state.date = null;
+      state.activity = { label: "" };
+      state.description = null;
+    };
 
     return { ...toRefs(state), onSubmit, onReset, activityTypes };
   },

@@ -7,7 +7,7 @@
       transition-next="jump-up"
     >
       <q-tab-panel name="add">
-        <AddActivity />
+        <AddActivity @added="moveToHistory" />
       </q-tab-panel>
       <q-tab-panel name="history">
         <ActivityHistory />
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { onMounted, reactive, ref } from "vue";
+import { toRefs, reactive } from "vue";
 import { useStore } from "vuex";
 
 import AddActivity from "./ActivitiesTabs/AddActivity.vue";
@@ -41,10 +41,16 @@ export default {
     ActivityHistory,
   },
   setup() {
-    const state = reactive({});
+    const state = reactive({
+      tab: "history",
+    });
     const store = useStore();
 
-    return { state, tab: ref("history") };
+    const moveToHistory = () => {
+      state.tab = "history";
+    };
+
+    return { ...toRefs(state), moveToHistory };
   },
 };
 </script>
