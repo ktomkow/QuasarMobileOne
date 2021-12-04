@@ -1,13 +1,16 @@
 <template>
-  <div class="bg-blue-3 fit">
-    <div class='text-h5'>History</div>
+  <div class="fit">
+    <div class="text-h5">History</div>
     <q-list bordered>
       <q-item v-ripple v-for="activity in myActivities" :key="activity.id">
         <q-item-section avatar>
-          <q-icon color="primary" name="bluetooth" />
+          <q-icon color="primary" :name="getIcon(activity.typeId)" />
         </q-item-section>
-        <q-item-section>Icon as avatar</q-item-section>
-        <q-item-section>Icon as avatar</q-item-section>
+        <q-item-section>
+          <span>{{ activity.id }}</span>
+        </q-item-section>
+        <q-item-section>{{ $d(activity.date) }}</q-item-section>
+        <q-item-section>{{ activity.description }}</q-item-section>
       </q-item>
     </q-list>
   </div>
@@ -29,7 +32,11 @@ export default {
       return store.state.activity.myActivities;
     });
 
-    return { ...toRefs(state), myActivities };
+    const getIcon = (typeId) => {
+      return store.getters["activity/getIcon"](typeId);
+    };
+
+    return { ...toRefs(state), myActivities, getIcon };
   },
 };
 </script>

@@ -34,7 +34,7 @@
       label="Description"
       clearable
       counter
-      maxlength="100"
+      maxlength="50"
     />
 
     <div class="column items-center q-ma-xs q-pa-xs q-gutter-sm">
@@ -77,10 +77,6 @@ export default {
       });
       context.emit("added");
       onReset();
-      console.log(
-        "store.state.activity.myActivities",
-        store.state.activity.myActivities
-      );
     };
 
     const onReset = () => {
