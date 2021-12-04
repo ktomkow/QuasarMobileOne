@@ -17,6 +17,6 @@ export default function () {
       { id: 2, name: "distance" },
       { id: 3, name: "time" },
     ],
-    myActivites: [],
+    myActivities: [],
   };
 }

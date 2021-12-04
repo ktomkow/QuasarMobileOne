@@ -70,9 +70,17 @@ export default {
     );
 
     const onSubmit = () => {
-      console.log(state);
+      store.dispatch("activity/add", {
+        date: state.date,
+        activity: state.activity,
+        description: state.description,
+      });
       context.emit("added");
       onReset();
+      console.log(
+        "store.state.activity.myActivities",
+        store.state.activity.myActivities
+      );
     };
 
     const onReset = () => {
