@@ -16,10 +16,10 @@
     <q-footer>
       <q-btn
         class="fit"
-        color="secondary"
-        icon="check"
-        label="Load data"
-        @click="loadFromStorage"
+        color="negative"
+        icon="clear"
+        label="Clear"
+        @click='onClear'
       />
       <q-tabs
         v-model="tab"
@@ -57,14 +57,11 @@ export default {
       state.tab = "history";
     };
 
-    const loadFromStorage = () => {
-      const storage = window.localStorage;
-      const result = storage.getItem("myActivities");
-      console.log("loadFromStorage result: ", JSON.parse(result));
-      alert(result);
-    };
+    const onClear = () => {
+      store.dispatch("activity/clear");
+    }
 
-    return { ...toRefs(state), moveToHistory, loadFromStorage };
+    return { ...toRefs(state), moveToHistory, onClear };
   },
 };
 </script>

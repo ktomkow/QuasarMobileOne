@@ -15,3 +15,7 @@ export function add(context, data) {
 export function setMyActivities(context, activities) {
   context.commit('setMyActivities', activities);
 }
+
+export function clear(context) {
+  context.commit('clear');
+}

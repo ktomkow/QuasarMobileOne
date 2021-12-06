@@ -6,9 +6,6 @@
         <q-item-section avatar>
           <q-icon color="primary" :name="getIcon(activity.typeId)" />
         </q-item-section>
-        <q-item-section>
-          <span>{{ activity.id }}</span>
-        </q-item-section>
         <q-item-section>{{ $d(activity.date) }}</q-item-section>
         <q-item-section>{{ activity.description }}</q-item-section>
       </q-item>
@@ -36,8 +33,8 @@ export default {
 
     onMounted(() => {
       const storage = window.localStorage;
-      const stored = storage.getItem("myActivites");
-      console.log("stored: ", stored);
+      const stored = storage.getItem("myActivities");
+
       if (stored && stored.length > 0) {
         store.dispatch("activity/setMyActivities", JSON.parse(stored));
       }

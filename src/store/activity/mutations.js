@@ -9,3 +9,8 @@ export function add(state, newActivity) {
 export function setMyActivities(state, activities) {
   state.myActivities = activities;
 }
+
+export function clear(state) {
+  state.myActivities = [];
+  storage.setItem("myActivities", JSON.stringify([]));
+}
