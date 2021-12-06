@@ -14,6 +14,13 @@
       </q-tab-panel>
     </q-tab-panels>
     <q-footer>
+      <q-btn
+        class="fit"
+        color="secondary"
+        icon="check"
+        label="Load data"
+        @click="loadFromStorage"
+      />
       <q-tabs
         v-model="tab"
         dense
@@ -28,7 +35,7 @@
 </template>
 
 <script>
-import { toRefs, reactive } from "vue";
+import { toRefs, reactive, onMounted } from "vue";
 import { useStore } from "vuex";
 
 import AddActivity from "./ActivitiesTabs/AddActivity.vue";
@@ -50,7 +57,14 @@ export default {
       state.tab = "history";
     };
 
-    return { ...toRefs(state), moveToHistory };
+    const loadFromStorage = () => {
+      const storage = window.localStorage;
+      const result = storage.getItem("myActivities");
+      console.log("loadFromStorage result: ", JSON.parse(result));
+      alert(result);
+    };
+
+    return { ...toRefs(state), moveToHistory, loadFromStorage };
   },
 };
 </script>

@@ -5,3 +5,7 @@ export function add(state, newActivity) {
 
   storage.setItem("myActivities", JSON.stringify(state.myActivities));
 }
+
+export function setMyActivities(state, activities) {
+  state.myActivities = activities;
+}

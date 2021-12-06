@@ -17,10 +17,8 @@
 </template>
 
 <script>
-import { toRefs, reactive, computed } from "vue";
+import { toRefs, reactive, computed, onMounted } from "vue";
 import { useStore } from "vuex";
-import { useI18n } from "vue-i18n";
-import { extend } from "quasar";
 
 export default {
   name: "ActivityHistory",
@@ -35,6 +33,15 @@ export default {
     const getIcon = (typeId) => {
       return store.getters["activity/getIcon"](typeId);
     };
+
+    onMounted(() => {
+      const storage = window.localStorage;
+      const stored = storage.getItem("myActivites");
+      console.log("stored: ", stored);
+      if (stored && stored.length > 0) {
+        store.dispatch("activity/setMyActivities", JSON.parse(stored));
+      }
+    });
 
     return { ...toRefs(state), myActivities, getIcon };
   },
